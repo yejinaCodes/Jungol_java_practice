@@ -6,8 +6,7 @@ public class nu_4 {
         Scanner sc = new Scanner(System.in);
         Integer a = sc.nextInt();
         Integer b = sc.nextInt();
-        a = a++;
-        b = --b;
-        System.out.printf("%d %d %d", a, b, a*b);
+        Integer result = a++ * --b;
+        System.out.printf("%d %d %d", a, b, result);
     }
 }
