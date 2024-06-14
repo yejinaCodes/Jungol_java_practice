@@ -6,8 +6,16 @@ public class nu_6 {
         Integer a = sc.nextInt();
         Integer b = sc.nextInt();
 
-        if (a > b){
-            System.out.printf("%d > %d --- %d", a, b, (a>b)){
-        }
+        Boolean first = a>b;
+        Boolean second = a<b;
+        Boolean third = a>=b;
+        Boolean fourth = a<=b;
+
+        System.out.printf("%d > %d --- %b\n", a, b, first);
+        System.out.printf("%d < %d --- %b\n", a, b, second);
+        System.out.printf("%d >= %d --- %b\n", a, b, third);
+        System.out.printf("%d <= %d --- %b\n", a, b, fourth);
+
+
     }
 }
