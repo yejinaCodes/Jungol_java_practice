@@ -1,18 +1,19 @@
 package PersonalDiagnosis_yonsanja;
-import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class nu_7 {
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        int a = Integer.parseInt(br.readLine());
-        int b = Integer.parseInt(br.readLine());
-
-
-        System.out.println(a==1);
-        System.out.println(b==0);
-
-
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        //System.out.println(b);
+        int result = a * b;
+        int result2 = a + b;
+        Boolean r= (result != 0);
+        Boolean r2 = (result2 != 0);
+        System.out.printf(r + " " + r2);
     }
 }
+
+//true = 1
+//false = 0
