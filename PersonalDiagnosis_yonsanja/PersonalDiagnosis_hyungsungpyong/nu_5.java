@@ -1,4 +1,4 @@
-package PersonalDiagnosis_hyungsungpyong;
+package PersonalDiagnosis_yonsanja.PersonalDiagnosis_hyungsungpyong;
 import java.io.*;
 import java.util.*;
 
