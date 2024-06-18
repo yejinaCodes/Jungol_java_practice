@@ -14,7 +14,7 @@ public class nu_2 {
         int c = (int)a/b;
         double d = (double)a/(double)b;
         //System.out.printf("%d %.2d",c,d);
-        System.out.printf((String.format("%d %.2f",c,d)));
-
+        //System.out.printf((String.format("%d %.2f",c,d)));
+        System.out.printf("%d %.2f",c,d);
     }
 }

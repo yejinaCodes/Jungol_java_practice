@@ -9,5 +9,7 @@ public class nu_6 {
         st = new StringTokenizer(br.readLine());
 
 
+
+
     }
 }
