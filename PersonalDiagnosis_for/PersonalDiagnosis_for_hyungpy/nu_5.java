@@ -6,8 +6,11 @@ public class nu_5 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-
-        while(true){
+        boolean flag = true;
+        while(flag){
+            if(flag){
+                break;
+            }
             st = new StringTokenizer(br.readLine());
             int base = Integer.parseInt(st.nextToken());
             int height = Integer.parseInt(st.nextToken());
@@ -19,10 +22,8 @@ public class nu_5 {
             System.out.printf("Continue ? ");
 
             char check = br.readLine().charAt(0);
-            if((check == 'Y') || (check == 'y')){
-                continue;
-            }else{
-                break;
+            if(check != 'Y'||check != 'y') {
+                flag = false;
             }
 
         }
