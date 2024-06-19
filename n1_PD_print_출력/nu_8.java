@@ -1,4 +1,4 @@
-package n1_PersonalDiagnosis_print;
+package n1_PD_print_출력;
 
 public class nu_8 {
     public static void main(String[] args) {
