@@ -8,7 +8,7 @@ public class nu_5 {
         StringTokenizer st;
         boolean flag = true;
         while(flag){
-            if(flag){
+            if(!flag){
                 break;
             }
             st = new StringTokenizer(br.readLine());
@@ -22,7 +22,9 @@ public class nu_5 {
             System.out.printf("Continue ? ");
 
             char check = br.readLine().charAt(0);
-            if(check != 'Y'||check != 'y') {
+            if(check == 'Y'|| check == 'y') {
+                continue;
+            }else{
                 flag = false;
             }
 
