@@ -8,8 +8,12 @@ public class nu_6 {
         StringTokenizer st;
         st = new StringTokenizer(br.readLine());
 
-
-
-
+        String gender = st.nextToken(); //어차피 readline은 string으로 받아오기 때문 Parse필요없음
+        int age = Integer.parseInt(st.nextToken());
+        if(gender.equals('F')){
+            System.out.println("GIRL");
+        }else{
+            System.out.println("BOY");
+        }
     }
 }
