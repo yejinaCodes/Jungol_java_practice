@@ -1,7 +1,7 @@
 package javajungsuk;
 import java.util.Scanner;
 
-public class Practice {
+public class Practice1 {
   boolean intCompare(int x) {
     if (x > 10 && x < 20) {
       return true;
@@ -64,7 +64,7 @@ public class Practice {
   }
 
   public static void main(String[] args) {
-    Practice first = new Practice();
+    Practice1 first = new Practice1();
 
     System.out.print("Input integer: ");
     //1) int 비교
