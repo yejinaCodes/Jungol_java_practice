@@ -2,20 +2,20 @@ package javajungsuk;
 
 public class Practice4 {
   public static void main(String[] args) {
-    int result = 0;
+    solution();
+  }
+  public static void solution(){
+    int sum = 0;
     int i = 1;
-    while(true){
-      //??
-      if(result >= 100){
-        System.out.println(i);
-        System.out.println(result);
-        break;
+    while(sum < 100){
+      if(i%2 == 0){
+        sum += -(i);
       }
-      result += i;
+      else{
+        sum += i;
+      }
       i++;
-      result -= i;
-      i++;
-      //System.out.println(i);
     }
+    System.out.println("sum: " + sum + " i: " + i);
   }
 }
