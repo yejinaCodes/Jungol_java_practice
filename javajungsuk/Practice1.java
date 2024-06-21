@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Practice1 {
   boolean intCompare(int x) {
-    if (x > 10 && x < 20) {
+    if (x >= 10 && x < 20) {
       return true;
     }
     return false;
@@ -20,10 +20,8 @@ public class Practice1 {
 
   boolean characterCompare(char n){
     //??
-    if(n == ' ' || n == '\t'){
-      return false;
-    }
-    return true;
+    boolean result = (n == ' ' || n == '\t');
+    return result;
   }
 
   boolean character2Compare(char n) {
@@ -75,7 +73,7 @@ public class Practice1 {
 
     System.out.print("Input character: ");
     //2) char 비교
-    char ch = sc.next().charAt(0);
+    char ch = sc.nextLine().charAt(0);
     result = first.characterCompare(ch);
     System.out.println(result);
 
@@ -114,9 +112,5 @@ public class Practice1 {
     String str = sc.next();
     result = first.stringCompare(str);
     System.out.println(result);
-
     }
-
   }
-
-
