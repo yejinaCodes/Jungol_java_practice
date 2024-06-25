@@ -1,6 +1,6 @@
 package 클래스작성방법;
 
-public class Prob1 {
+public class q_3Prob1 {
 
   public static void main(String[] args) {
 
