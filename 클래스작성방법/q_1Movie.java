@@ -1,6 +1,6 @@
 package 클래스작성방법;
 
-public class Movie {
+public class q_1Movie {
   String title = "";
   String genre = "";
 

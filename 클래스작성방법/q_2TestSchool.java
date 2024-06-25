@@ -1,18 +1,18 @@
 package 클래스작성방법;
 
-public class TestSchool {
+public class q_2TestSchool {
 
   public static void main(String[] args) {
 
-    Student s = new Student();
+    q_2Student s = new q_2Student();
     s.setName("홍길동");
     s.setAge(20);
     s.setId(200201);
-    Teacher t = new Teacher ();
+    q_2Teacher t = new q_2Teacher();
     t.setName("홍길동");
     t.setAge(30);
     t.setSubject("JAVA");
-    Employee  e= new Employee();
+    q_2Employee e= new q_2Employee();
     e.setName("홍길동");
     e.setAge(40);
     e.setDept("교무과");

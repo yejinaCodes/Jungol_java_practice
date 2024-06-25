@@ -1,6 +1,6 @@
 package 클래스작성방법;
 
-public class Student {
+public class q_2Student {
   private String name;
   private int age;
   private int id;

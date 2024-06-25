@@ -1,6 +1,6 @@
 package 클래스작성방법;
 
-public class Duck {
+public class q_3_Duck {
   private String name;
   private int legs;
   private int length;

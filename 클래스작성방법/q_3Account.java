@@ -1,6 +1,6 @@
 package 클래스작성방법;
 
-public class Account {
+public class q_3Account {
   private String accNo;
   private int balance;
 

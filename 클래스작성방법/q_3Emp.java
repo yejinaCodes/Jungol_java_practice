@@ -1,6 +1,6 @@
 package 클래스작성방법;
 
-public class Emp {
+public class q_3Emp {
   private String id;
   private String name;
   private int baseSalary;

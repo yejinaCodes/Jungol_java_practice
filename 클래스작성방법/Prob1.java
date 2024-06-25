@@ -4,7 +4,7 @@ public class Prob1 {
 
   public static void main(String[] args) {
 
-    Emp emp = new Emp();
+    q_3Emp emp = new q_3Emp();
     emp.setId("12345");
     emp.setName("홍길동");
     emp.setBaseSalary(50000);

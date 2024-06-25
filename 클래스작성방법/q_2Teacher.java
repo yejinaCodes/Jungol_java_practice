@@ -1,9 +1,9 @@
 package 클래스작성방법;
 
-public class Employee {
+public class q_2Teacher {
   private String name;
   private int age;
-  private String dept;
+  private String subject;
 
   public void setName(String name) {
     this.name = name;
@@ -13,22 +13,22 @@ public class Employee {
     this.age = age;
   }
 
-  public void setDept(String dept) {
-    this.dept = dept;
+  public void setSubject(String subject) {
+    this.subject = subject;
   }
 
   public String getName() {
     return name;
   }
 
-  public String getDept() {
-    return dept;
-  }
-
   public int getAge() {
     return age;
   }
+
+  public String getSubject() {
+    return subject;
+  }
   public void print(){
-    System.out.println("이름 : " + this.getName() + "\t\t나이 : " + this.getAge() + "\t\t부서 : " + this.getDept());
+    System.out.println("이름 : " + this.getName() + "\t\t나이 : " + this.getAge() + "\t\t담당과목 : " + this.getSubject());
   }
 }

@@ -1,12 +1,12 @@
 package 클래스작성방법;
 
-public class TestAccount {
+public class q_3TestAccount {
   public static void main(String[] args) throws Exception {
 
     String accNo = null;
     int balance = 0;
 
-    Account accObj = new Account();
+    q_3Account accObj = new q_3Account();
     accObj.setAccNo("078-3762-293");
     accNo = accObj.getAccNo();
     balance = accObj.getBalance();

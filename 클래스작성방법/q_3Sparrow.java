@@ -1,6 +1,6 @@
 package 클래스작성방법;
 
-public class Sparrow {
+public class q_3Sparrow {
   private String name;
   private int legs;
   private int length;
