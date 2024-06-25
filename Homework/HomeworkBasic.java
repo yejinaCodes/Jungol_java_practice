@@ -67,7 +67,7 @@ public class HomeworkBasic {
   public static void method16(){
     System.out.println("for(int i=1; i<10; i++)");
     System.out.println("  i++;");
-    //System.out.println("  System.out.print(i+ " ");");
+    //System.out.println("  System.out.print(i+ "\\");");
   }
   public static void method17(){
     System.out.println("sum += i;");
