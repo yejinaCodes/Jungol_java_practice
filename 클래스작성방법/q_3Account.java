@@ -23,8 +23,12 @@ public class q_3Account {
     this.setBalance(this.getBalance() + in);
   }
   public void deposit(int out){
-    System.out.println(this.getAccNo() + " 계좌에 " + out + "만원이 출금되었습니다.");
-    this.setBalance(this.getBalance() - out);
+    if(out > this.getBalance()){
+      System.out.println("잔고가 부족해 출금을 할 수 없습니다.");
+    } else {
+      System.out.println(this.getAccNo() + " 계좌에 " + out + "만원이 출금되었습니다.");
+      this.setBalance(this.getBalance() - out);
+    }
   }
 
 }
