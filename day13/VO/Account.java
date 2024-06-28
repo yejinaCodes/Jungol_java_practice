@@ -12,10 +12,12 @@ public class Account {
     this.ownerName = ownerName;
   }
   public void deposit(long amount){
-    System.out.println("deposit" + amount);
+    this.balance = this.balance + amount;
+    //System.out.println("deposit" + amount);
   }
   public void withdraw(long amount){
-    System.out.println("withdraw" + amount);
+    this.balance = this.balance - amount;
+    //System.out.println("withdraw" + amount);
   }
 
   public String getAccId() {
