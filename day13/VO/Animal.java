@@ -8,4 +8,5 @@ public class Animal extends Object{
     System.out.println("Animal eat!"); //추상적인 객체(대분류)
   }
 
+
 }
