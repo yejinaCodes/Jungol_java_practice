@@ -12,21 +12,16 @@ import java.util.InputMismatchException;
 
 public class BoardExample {
     private static ResultSet rs = null;
-    private static ArrayList<Board> boardlist = new ArrayList<Board>();
+    public static ArrayList<Board> boardlist = new ArrayList<Board>();
 
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) throws IOException, SQLException {
+        db_connection connect = new db_connection();
+        Connection connection = connect.open();
 
         try{
-            //jdbc 드라이버 등록
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            //DriverManager.getConnection(url, id, pwd);
-            //연결하기
-            connection = new db_connection;
-
             System.out.println("connection = " + connection);
 
             //BoardExample board = new BoardExample();
@@ -59,10 +54,7 @@ public class BoardExample {
             }
 
 
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
-
-        }finally{
+        } finally{
             if(connection != null){
                 try {
                     connection.close();
