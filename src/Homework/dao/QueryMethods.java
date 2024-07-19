@@ -20,7 +20,6 @@ public class QueryMethods {
     ArrayList<Board> boardlist = new ArrayList<Board>();
     private static ResultSet rs = null;
 
-
     public Boolean insertDB(Connection connection, Board board) throws IOException {
         String query = "INSERT INTO board_site(writer, date, title, content)" + "VALUES(?,?,?,?)";
 
@@ -77,6 +76,44 @@ public class QueryMethods {
             throw new RuntimeException(e);
         }
     }
+
+    public Boolean readOneBoard(Connection connection, int bno) throws IOException {
+        //String builder로 바꾸기
+        String query = "Select * " + "FROM board_site " + "WHERE no=?";
+        Board tmp_board = new Board();
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, String.valueOf(bno));
+
+            rs= pstmt.executeQuery();
+
+            if(rs.next()){
+                //Board board = new Board();
+                tmp_board.setBno(rs.getByte("no"));
+                tmp_board.setBwriter(rs.getString("writer"));
+                tmp_board.setBtitle(rs.getString("title"));
+                tmp_board.setBdate(LocalDate.parse(rs.getString("date")));
+                return true;
+
+            }else{
+                return false;
+            }
+
+            rs.close();
+            pstmt.close();
+
+        }catch (Exception e){
+            System.out.println("해당 게시물이 존재하지 않습니다.");
+        }
+
+
+
+
+    }
+
+
+
 
 
 

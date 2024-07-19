@@ -1,5 +1,6 @@
 package Homework.service;
 
+import Homework.BoardExample;
 import Homework.dao.QueryMethods;
 import Homework.exception.Exception_class;
 import Homework.vo.Board;
@@ -79,53 +80,39 @@ public class BoardService {
     }
 
     //read
-//    public static void read(Connection connection) throws IOException {
-//
-//        Board reading_board = null;
-//        System.out.println("[게시물 읽기]");
-//        System.out.print("bno: ");
-//        int bno = Integer.parseInt(br.readLine());
-//
-//        //String builder
-//        String query = "Select * " + "FROM board_site " + "WHERE no=?";
-//
-//        try {
-//            PreparedStatement pstmt = connection.prepareStatement(query);
-//            pstmt.setString(1, String.valueOf(bno));
-//
-//            rs= pstmt.executeQuery();
-//
-//            if(rs.next()){
-//                //Board board = new Board();
-//                reading_board.setBno(rs.getByte("no"));
-//                reading_board.setBwriter(rs.getString("writer"));
-//                reading_board.setBtitle(rs.getString("title"));
-//                reading_board.setBdate(LocalDate.parse(rs.getString("date")));
-//            }else{
-//                System.out.println("해당 board 는 존재하지 않습니다.");
-//            }
-//            rs.close();
-//            pstmt.close();
-//
-//            System.out.println("보조 메뉴: 1.Update | 2.Delete | 3.List");
-//            System.out.print("메뉴 선택: ");
-//
-//            int side_menu = Integer.parseInt(br.readLine());
-//            switch (side_menu){
-//                case 1:
-//                    update(reading_board);
-//                    break;
-//                case 2:
-//                    delete(reading_board);
-//                    break;
-//                case 3:
-//                    list();
-//                    break;
-//            }
-//        }catch (Exception e){
-//            System.out.println("해당 게시물이 존재하지 않습니다.");
-//        }
-//    }
+    public static void read(Connection connection) throws IOException {
+
+        Board reading_board = null;
+        System.out.println("[게시물 읽기]");
+        System.out.print("bno: ");
+
+        QueryMethods qm = new QueryMethods();
+        int bno = Integer.parseInt(br.readLine());
+
+        Boolean board_exist = qm.readOneBoard(connection, bno);
+        if(board_exist){
+
+            System.out.println("보조 메뉴: 1.Update | 2.Delete | 3.List");
+            System.out.print("메뉴 선택: ");
+
+            int side_menu = Integer.parseInt(br.readLine());
+            switch (side_menu){
+                case 1:
+                    update(reading_board);
+                    break;
+                case 2:
+                    delete(reading_board);
+                    break;
+                case 3:
+                    BoardService.list();
+                    break;
+            }
+        }
+        else{
+            System.err.println("해당 board 는 존재하지 않습니다.");
+        }
+
+    }
 
     //list
     public static void list(Connection connection){

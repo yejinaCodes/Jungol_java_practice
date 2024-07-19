@@ -9,7 +9,6 @@ import java.sql.*;
 public class BoardExample {
     private static ResultSet rs = null;
 
-
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -35,11 +34,11 @@ public class BoardExample {
                         break;
                     //읽기
                     case 2:
-                        //BoardService.read(connection);
+                        BoardService.read(connection);
                         break;
                     //전체 삭제
                     case 3:
-                        //BoardService.clear(connection);
+                        BoardService.clear(connection);
                         break;
                     //exit
                     case 4:
@@ -48,7 +47,6 @@ public class BoardExample {
                         break;
                 }
             }
-
 
         } finally{
             if(connection != null){
@@ -60,7 +58,6 @@ public class BoardExample {
                 }
             }
         }
-
     }
 
 }
