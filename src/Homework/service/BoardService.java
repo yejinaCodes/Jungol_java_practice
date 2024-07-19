@@ -1,11 +1,13 @@
 package Homework.service;
 
+import Homework.dao.query_methods;
 import Homework.exception.Exception_class;
 import Homework.vo.Board;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -18,13 +20,14 @@ public class BoardService {
     static String writer;
     static String date;
 
-    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     //create
-    public static void create() throws IOException {
+    public static void create(Connection connection) throws IOException {
         Exception_class exobj = new Exception_class();
         Boolean flag_c = false;
 
+        Board tmp_board = new Board();
         //새 게시물 입력 부분
         while(!flag_c) {
             try {
@@ -51,48 +54,31 @@ public class BoardService {
                 System.out.println();
             }
         }
-        date = String.valueOf(LocalDate.now());
+        //date = String.valueOf(LocalDate.now());
+
+        tmp_board.setBtitle(title);
+        tmp_board.setBwriter(writer);
+        tmp_board.setBcontent(content);
+        tmp_board.setBdate();
 
 
         //보조 메뉴 선택
         while(!flag_c){
-            String query = "INSERT INTO board_site(writer, date, title, content)" + "VALUES(?,?,?,?)";
-            System.out.println("----------------------------------------------------");
-            System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
-            System.out.print("메뉴 선택: ");
-
-            int confirm = Integer.parseInt(br.readLine());
             try{
-                if(confirm == 1){
-                    //db에 저장하기
-                    PreparedStatement pstmt = connection.prepareStatement(query);
-                    //pstmt.setString(1, String.valueOf(number));
-                    pstmt.setString(1, writer);
-                    pstmt.setString(2, date);
-                    pstmt.setString(3, title);
-                    pstmt.setString(4, content);
-
-                    int rows = pstmt.executeUpdate();
-                    pstmt.close();
-
-                    number++;
-                    flag_c = true;
-                } else if (confirm == 2) {
-                    System.out.println();
-                    flag_c = true;
-                }else {
-                    exobj.checkmenu(confirm);
-                }
+                System.out.println("----------------------------------------------------");
+                System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
+                System.out.print("메뉴 선택: ");
+                query_methods qm = new query_methods();
+                flag_c = qm.insert_db(connection, tmp_board);
+                //flag_c = true;
             }catch(InputMismatchException e){
-                System.err.println(e.getMessage());
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             }
         }
     }
 
     //read
-    public static void read() throws IOException {
+    public static void read(Connection connection) throws IOException {
 
         Board reading_board = null;
         System.out.println("[게시물 읽기]");
@@ -141,7 +127,7 @@ public class BoardService {
     }
 
     //list
-    public static void list(){
+    public static void list(Connection connection){
         String query = "SELECT * FROM board_site";
 
         System.out.println("[게시물 목록]");
@@ -196,7 +182,7 @@ public class BoardService {
 
 
     //clear
-    public static void clear() throws IOException {
+    public static void clear(Connection connection) throws IOException {
         System.out.println("[게시물 전체 삭제]");
         System.out.println("----------------------------------------------------");
         System.out.println("보조 메뉴: 1. Ok | 2. Cancel");

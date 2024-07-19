@@ -28,22 +28,22 @@ public class BoardExample {
             Boolean flag = false;
 
             while (!flag){
-                BoardService.list();
-                BoardService.mainMenu();
+                //BoardService.list(connection);
+                //BoardService.mainMenu();
 
                 int menu = Integer.parseInt(br.readLine());
                 switch (menu) {
                     //쓰기
                     case 1:
-                        BoardService.create();
+                        BoardService.create(connection);
                         break;
                     //읽기
                     case 2:
-                        BoardService.read();
+                        BoardService.read(connection);
                         break;
                     //전체 삭제
                     case 3:
-                        BoardService.clear();
+                        BoardService.clear(connection);
                         break;
                     //exit
                     case 4:
@@ -58,7 +58,7 @@ public class BoardExample {
             if(connection != null){
                 try {
                     connection.close();
-                    System.out.println("db connection fail");
+                    System.out.println("end db connection");
                 }catch(SQLException e){
                     System.err.println(e.getMessage());
                 }
