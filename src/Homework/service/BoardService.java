@@ -1,6 +1,6 @@
 package Homework.service;
 
-import Homework.dao.query_methods;
+import Homework.dao.QueryMethods;
 import Homework.exception.Exception_class;
 import Homework.vo.Board;
 
@@ -8,9 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -72,8 +69,8 @@ public class BoardService {
                 System.out.println("----------------------------------------------------");
                 System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
                 System.out.print("메뉴 선택: ");
-                query_methods qm = new query_methods();
-                flag_c = qm.insert_db(connection, tmp_board);
+                QueryMethods qm = new QueryMethods();
+                flag_c = qm.insertDB(connection, tmp_board);
                 //flag_c = true;
             }catch(InputMismatchException e){
                 System.out.println(e.getMessage());
@@ -137,9 +134,9 @@ public class BoardService {
         System.out.println("no\t\twriter\t\t\tdate\t\t\t\ttitle");
 
         boardlist.clear();
-        query_methods qm = new query_methods();
+        QueryMethods qm = new QueryMethods();
         try{
-            boardlist = qm.get_db(connection);
+            boardlist = qm.getDB(connection);
             for(Board board: boardlist){
                 System.out.printf("%s\t\t%s\t\t\t%s\t\t\t%s\n", board.getBno(), board.getBwriter(), board.getBdate(), board.getBtitle());
             }

@@ -14,14 +14,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-public class query_methods {
+public class QueryMethods {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     Exception_class exobj = new Exception_class();
     ArrayList<Board> boardlist = new ArrayList<Board>();
     private static ResultSet rs = null;
 
 
-    public Boolean insert_db(Connection connection, Board board) throws IOException {
+    public Boolean insertDB(Connection connection, Board board) throws IOException {
         String query = "INSERT INTO board_site(writer, date, title, content)" + "VALUES(?,?,?,?)";
 
         int confirm = Integer.parseInt(br.readLine());
@@ -54,7 +54,7 @@ public class query_methods {
         return false;
     }
 
-    public ArrayList get_db(Connection connection){
+    public ArrayList getDB(Connection connection){
         String query = "SELECT * FROM board_site";
         boardlist.clear();
 

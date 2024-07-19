@@ -1,14 +1,10 @@
 package Homework;
 
-import Homework.dao.db_connection;
+import Homework.dao.DBConnection;
 import Homework.service.BoardService;
-import Homework.vo.Board;
 
 import java.io.*;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 
 public class BoardExample {
     private static ResultSet rs = null;
@@ -18,7 +14,7 @@ public class BoardExample {
     //static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) throws IOException, SQLException {
-        db_connection connect = new db_connection();
+        DBConnection connect = new DBConnection();
         Connection connection = connect.open();
 
         try{
