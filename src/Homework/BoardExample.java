@@ -12,7 +12,7 @@ import java.util.InputMismatchException;
 
 public class BoardExample {
     private static ResultSet rs = null;
-    public static ArrayList<Board> boardlist = new ArrayList<Board>();
+
 
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -28,8 +28,8 @@ public class BoardExample {
             Boolean flag = false;
 
             while (!flag){
-                //BoardService.list(connection);
-                //BoardService.mainMenu();
+                BoardService.list(connection);
+                BoardService.mainMenu();
 
                 int menu = Integer.parseInt(br.readLine());
                 switch (menu) {
@@ -39,11 +39,11 @@ public class BoardExample {
                         break;
                     //읽기
                     case 2:
-                        BoardService.read(connection);
+                        //BoardService.read(connection);
                         break;
                     //전체 삭제
                     case 3:
-                        BoardService.clear(connection);
+                        //BoardService.clear(connection);
                         break;
                     //exit
                     case 4:
