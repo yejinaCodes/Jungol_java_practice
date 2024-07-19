@@ -1,5 +1,7 @@
 package Homework;
 
+import Homework.dao.db_connection;
+import Homework.service.BoardService;
 import Homework.vo.Board;
 
 import java.io.*;
@@ -12,9 +14,8 @@ public class BoardExample {
     private static ResultSet rs = null;
     private static ArrayList<Board> boardlist = new ArrayList<Board>();
 
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
 
     public static void main(String[] args) throws IOException, SQLException {
 
@@ -22,30 +23,32 @@ public class BoardExample {
             //jdbc 드라이버 등록
             Class.forName("com.mysql.cj.jdbc.Driver");
 
+            //DriverManager.getConnection(url, id, pwd);
             //연결하기
-            connection = DriverManager.getConnection(url, id, pwd);
+            connection = new db_connection;
+
             System.out.println("connection = " + connection);
 
             //BoardExample board = new BoardExample();
             Boolean flag = false;
 
             while (!flag){
-                list();
-                mainMenu();
+                BoardService.list();
+                BoardService.mainMenu();
 
                 int menu = Integer.parseInt(br.readLine());
                 switch (menu) {
                     //쓰기
                     case 1:
-                        create();
+                        BoardService.create();
                         break;
                     //읽기
                     case 2:
-                        read();
+                        BoardService.read();
                         break;
                     //전체 삭제
                     case 3:
-                        clear();
+                        BoardService.clear();
                         break;
                     //exit
                     case 4:

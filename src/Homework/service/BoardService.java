@@ -3,22 +3,25 @@ package Homework.service;
 import Homework.exception.Exception_class;
 import Homework.vo.Board;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 
 public class BoardService {
-    //static int number = 1;
+    static int number = 1;
     static String title;
     static String content;
     static String writer;
     static String date;
 
+    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
 
     //create
-    static void create_board() throws IOException {
+    public static void create() throws IOException {
         Exception_class exobj = new Exception_class();
         Boolean flag_c = false;
 
@@ -89,7 +92,7 @@ public class BoardService {
     }
 
     //read
-    static void read_board() throws IOException {
+    public static void read() throws IOException {
 
         Board reading_board = null;
         System.out.println("[게시물 읽기]");
@@ -138,7 +141,7 @@ public class BoardService {
     }
 
     //list
-    static void list(){
+    public static void list(){
         String query = "SELECT * FROM board_site";
 
         System.out.println("[게시물 목록]");
@@ -172,7 +175,7 @@ public class BoardService {
     }
 
     //update
-    static void update(Board current_board) throws IOException {
+    public static void update(Board current_board) throws IOException {
         System.out.println("[수정 내용 입력]");
         System.out.print("제목: ");
         String tmp_title = br.readLine();
@@ -193,7 +196,7 @@ public class BoardService {
 
 
     //clear
-    static void clear() throws IOException {
+    public static void clear() throws IOException {
         System.out.println("[게시물 전체 삭제]");
         System.out.println("----------------------------------------------------");
         System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
@@ -207,12 +210,12 @@ public class BoardService {
 
 
     //delete
-    static void delete(Board current_board){
+    public static void delete(Board current_board){
         boardlist.remove(current_board);
     }
 
     //mainMenu
-    static void mainMenu(){
+    public static void mainMenu(){
         System.out.println("메인 메뉴: 1. Create | 2. Read | 3. Clear | 4. Exit");
         System.out.print("메뉴선택: ");
     }
