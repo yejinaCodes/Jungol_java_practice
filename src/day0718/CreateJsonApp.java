@@ -1,4 +1,4 @@
-package Homework.day0718;
+package day0718;
 
 
 import org.json.JSONObject;
