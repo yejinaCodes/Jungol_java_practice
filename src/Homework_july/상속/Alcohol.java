@@ -1,4 +1,4 @@
-package Homework.상속;
+package Homework_july.상속;
 
 public class Alcohol extends Drink{
   private String name;

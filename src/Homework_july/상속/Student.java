@@ -1,6 +1,4 @@
-package Homework.상속;
-
-import javax.security.auth.Subject;
+package Homework_july.상속;
 
 public class Student {
   private String name;

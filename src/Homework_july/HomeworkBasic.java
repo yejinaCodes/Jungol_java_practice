@@ -1,6 +1,4 @@
-package Homework;
-
-import java.sql.SQLOutput;
+package Homework_july;
 
 public class HomeworkBasic {
 

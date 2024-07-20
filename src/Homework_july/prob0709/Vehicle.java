@@ -1,6 +1,5 @@
-package Homework.prob0709;
+package Homework_july.prob0709;
 
-import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
 

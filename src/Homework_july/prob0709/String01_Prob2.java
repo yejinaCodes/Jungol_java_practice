@@ -1,4 +1,4 @@
-package Homework.prob0709;
+package Homework_july.prob0709;
 
 import java.util.Scanner;
 
