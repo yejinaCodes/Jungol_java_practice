@@ -17,7 +17,7 @@ public class BoardExample {
 
     public static void main(String[] args) throws IOException, SQLException {
 
-        BoardService bs = new BoardServiceImpl();
+        BoardServiceImpl bs = new BoardServiceImpl();
         while (true){
             try{
                 System.out.println("[게시물 목록]");
@@ -25,16 +25,19 @@ public class BoardExample {
                 System.out.println("no\t\twriter\t\t\tdate\t\t\t\ttitle");
                 ArrayList<Board> bl = bs.list();
 
-                for(Board board: bl){
-                    System.out.printf("%s\t\t%s\t\t\t%s\t\t\t%s\n", board.getBno(), board.getBwriter(), board.getBdate(), board.getBtitle());
-                }
+
+                    for (Board board : bl) {
+                        System.out.printf("%s\t\t%s\t\t\t%s\t\t\t%s\n", board.getBno(),
+                            board.getBwriter(), board.getBdate(), board.getBtitle());
+                    }
+
                 System.out.println("----------------------------------------------------");
                 System.out.println("메인 메뉴: 1. Create | 2. Read | 3. Clear | 4. Exit");
                 System.out.print("메뉴선택: ");
 
-                int menu = br.read();
+                //int menu = br.read();
                 System.out.println();
-                //int menu = Integer.parseInt(br.readLine());
+                int menu = Integer.parseInt(br.readLine());
                 switch (menu) {
                     //create
                     case 1:
@@ -81,9 +84,9 @@ public class BoardExample {
                                 System.out.println("----------------------------------------------------");
                                 System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
                                 System.out.print("메뉴 선택: ");
-                                int confirm = br.read();
-                                //exptobj.checkmenu(confirm);
-                                bs.create(tmp_board);
+                                int confirm = Integer.parseInt(br.readLine());
+                                exptobj.checkmenu(confirm);
+                                if(confirm == 1)    bs.create(tmp_board);
                                 break;
                             }catch(InputMismatchException e){
                                 System.err.println(e.getMessage());
@@ -98,7 +101,7 @@ public class BoardExample {
                             try{
                                 System.out.println("[게시물 읽기]");
                                 System.out.print("bno: ");
-                                int bno = br.read();
+                                int bno = Integer.parseInt(br.readLine());
                                 Board board = bs.read(bno);
 
                                 //게시물 출력하기
@@ -113,7 +116,7 @@ public class BoardExample {
                                 System.out.println("보조 메뉴: 1.Update | 2.Delete | 3.List");
                                 System.out.print("메뉴 선택: ");
 
-                                int side_menu = br.read();
+                                int side_menu = Integer.parseInt(br.readLine());
                                 switch (side_menu){
                                     //update
                                     case 1:
@@ -128,7 +131,7 @@ public class BoardExample {
                                         System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
                                         System.out.print("메뉴 선택: ");
 
-                                        int confirm = br.read();
+                                        int confirm = Integer.parseInt(br.readLine());
 
                                         if(confirm == 1){
                                             Board new_board = new Board();
@@ -136,7 +139,7 @@ public class BoardExample {
                                             new_board.setBcontent(tmp_content);
                                             new_board.setBwriter(tmp_writer);
                                             new_board.setBdate();
-
+                                            new_board.setBno(bno);
                                             bs.update(new_board);
                                         }
                                         break;
@@ -145,7 +148,7 @@ public class BoardExample {
                                         System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
                                         System.out.print("메뉴 선택: ");
 
-                                        confirm = br.read();
+                                        confirm = Integer.parseInt(br.readLine());
                                         if(confirm == 1){
                                             bs.delete(bno);
                                         }
@@ -169,7 +172,7 @@ public class BoardExample {
                         System.out.println("보조 메뉴: 1. Ok | 2. Cancel");
                         System.out.print("메뉴 선택: ");
 
-                        int side_menu = br.read();
+                        int side_menu = Integer.parseInt(br.readLine());
                         if(side_menu == 1){
                             bs.clear();
                         }
@@ -177,7 +180,7 @@ public class BoardExample {
                     //exit
                     case 4:
                         System.out.println("** 게시판 종료 ** ");
-                        break;
+                        System.exit(0);
                 }
             }catch(IOException e) {
                 System.err.println(e.getMessage());

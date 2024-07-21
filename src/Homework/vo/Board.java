@@ -1,5 +1,6 @@
 package Homework.vo;
 
+import java.time.format.DateTimeFormatter;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -8,11 +9,11 @@ import java.time.LocalDate;
 public class Board {
     private int bno;
     private String bwriter;
-    private LocalDate bdate;
+    private String bdate;
     private String btitle;
     private String bcontent;
 
     public void setBdate() {
-        this.bdate = LocalDate.now();
+        this.bdate = LocalDate.now().format(DateTimeFormatter.ofPattern("YYYYMMdd"));
     }
 }
