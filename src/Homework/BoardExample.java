@@ -22,7 +22,7 @@ public class BoardExample {
             try{
                 System.out.println("[게시물 목록]");
                 System.out.println("----------------------------------------------------");
-                System.out.println("no\t\twriter\t\t\tdate\t\t\t\ttitle");
+                System.out.println("no\twriter\t\tdate\t\t\t\ttitle");
                 ArrayList<Board> bl = bs.list();
 
 

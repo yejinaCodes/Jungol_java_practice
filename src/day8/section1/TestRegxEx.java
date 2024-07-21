@@ -1,4 +1,4 @@
-package section1;
+package day8.section1;
 
 import java.util.regex.Pattern;
 

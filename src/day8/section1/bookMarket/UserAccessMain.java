@@ -1,4 +1,4 @@
-package section1.bookMarket;
+package day8.section1.bookMarket;
 
 public class UserAccessMain {   //실행 클래스
 
